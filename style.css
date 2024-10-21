@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #ffcccb; /* Light pink background */
+    color: red; /* Red font color */
     text-align: center;
     padding: 20px;
 }
@@ -16,21 +16,20 @@ body {
 }
 
 h1 {
-    color: #0044cc;
+    color: red;
 }
 
 .question {
     margin: 10px 0;
 }
 
-input {
-    width: 50px;
+select {
     padding: 5px;
     margin-left: 10px;
 }
 
 button {
-    background-color: #0044cc;
+    background-color: red;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -39,7 +38,7 @@ button {
 }
 
 button:hover {
-    background-color: #003399;
+    background-color: darkred;
 }
 
 .hidden {
@@ -48,4 +47,33 @@ button:hover {
 
 #results {
     margin-top: 20px;
+}
+
+/* Heart shape using CSS */
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    margin: 20px auto;
+    transform: rotate(-45deg);
+}
+
+.heart::before, .heart::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    left: 50px;
+    top: 0;
 }
