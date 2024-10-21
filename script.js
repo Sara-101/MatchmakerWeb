@@ -42,12 +42,13 @@ function calculateScore() {
     for (let i = 0; i < 5; i++) {
         const diff = Math.abs(userAnswers[i] - desiredAnswers[i]);
         const questionScore = 5 - diff; // Higher score for closer answers
-        questionScores.push(questionScore);
-        totalScore += questionScore;
+        questionScores.push(questionScore); // Store individual question scores
+        totalScore += questionScore; // Accumulate total score
     }
 
+    // Convert the total score to a percentage (max score is 25)
     const compatibilityScore = Math.floor((totalScore / 25) * 100);
-    displayResults(compatibilityScore, questionScores);
+    displayResults(compatibilityScore, questionScores); // Display results
 }
 
 // Function to display the results
@@ -55,8 +56,9 @@ function displayResults(compatibilityScore, questionScores) {
     const resultsDiv = document.getElementById("results");
     resultsDiv.classList.remove("hidden");
 
+    // Display overall compatibility score
     const scoreElement = document.getElementById("compatibilityScore");
-    scoreElement.innerHTML = `Your compatibility score is: <strong>${compatibilityScore}%</strong>`;
+    scoreElement.innerHTML = `Your overall compatibility score is: <strong>${compatibilityScore}%</strong>`;
 
     const remarksElement = document.getElementById("remarks");
 
