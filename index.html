@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Love Compatibility Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>True Love Compatibility Test</h1>
+        <p>Answer the following questions to see if you and your partner are compatible!</p>
+
+        <form id="loveForm">
+            <div class="question">
+                <label for="q1">1. I enjoy outdoor activities.</label>
+                <input type="number" id="q1" name="q1" min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label for="q2">2. I prefer staying in over going out.</label>
+                <input type="number" id="q2" name="q2" min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label for="q3">3. I enjoy spicy food.</label>
+                <input type="number" id="q3" name="q3" min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label for="q4">4. I enjoy watching movies.</label>
+                <input type="number" id="q4" name="q4" min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label for="q5">5. I prefer reading over watching TV.</label>
+                <input type="number" id="q5" name="q5" min="1" max="5" required>
+            </div>
+
+            <button type="button" onclick="calculateScore()">Submit</button>
+        </form>
+
+        <div id="results" class="hidden">
+            <h2>Your Compatibility Results</h2>
+            <p id="compatibilityScore"></p>
+            <p id="remarks"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
