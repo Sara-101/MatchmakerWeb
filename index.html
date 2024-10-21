@@ -12,7 +12,9 @@
         <div class="heart"></div>
 
         <h1>True Love Compatibility Test</h1>
-        <p>Answer the following questions to see if you and your partner are compatible!</p>
+        
+        <!-- Instructions -->
+        <p>Instructions: Answer the following five questions by selecting a number between 1 (strongly disagree) and 5 (strongly agree). After submitting, you'll see your compatibility score with your ideal match based on your responses. For each question, the closer your answer is to the "ideal answer," the better your compatibility score will be. If you enter invalid input, you'll be asked to correct it.</p>
 
         <form id="loveForm">
             <!-- Using dropdowns for each question -->
@@ -26,6 +28,7 @@
                     <option value="4">4 - Agree</option>
                     <option value="5">5 - Strongly Agree</option>
                 </select>
+                <p class="error-message" id="error-q1"></p> <!-- Error message for question 1 -->
             </div>
 
             <div class="question">
@@ -38,6 +41,7 @@
                     <option value="4">4 - Agree</option>
                     <option value="5">5 - Strongly Agree</option>
                 </select>
+                <p class="error-message" id="error-q2"></p> <!-- Error message for question 2 -->
             </div>
 
             <div class="question">
@@ -50,6 +54,7 @@
                     <option value="4">4 - Agree</option>
                     <option value="5">5 - Strongly Agree</option>
                 </select>
+                <p class="error-message" id="error-q3"></p> <!-- Error message for question 3 -->
             </div>
 
             <div class="question">
@@ -62,6 +67,7 @@
                     <option value="4">4 - Agree</option>
                     <option value="5">5 - Strongly Agree</option>
                 </select>
+                <p class="error-message" id="error-q4"></p> <!-- Error message for question 4 -->
             </div>
 
             <div class="question">
@@ -74,14 +80,17 @@
                     <option value="4">4 - Agree</option>
                     <option value="5">5 - Strongly Agree</option>
                 </select>
+                <p class="error-message" id="error-q5"></p> <!-- Error message for question 5 -->
             </div>
 
             <button type="button" onclick="calculateScore()">Submit</button>
         </form>
 
+        <!-- Results Section -->
         <div id="results" class="hidden">
             <h2>Your Compatibility Results</h2>
             <p id="compatibilityScore"></p>
+            <div id="individualScores"></div> <!-- Individual compatibility scores -->
             <p id="remarks"></p>
         </div>
     </div>
@@ -89,3 +98,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
