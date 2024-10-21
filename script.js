@@ -6,12 +6,16 @@ const TRUE_LOVE_THRESHOLD = 80;
 const FRIENDS_THRESHOLD = 50;
 
 // Function to validate user input
-function validateInput(input) {
+function validateInput(input, errorId) {
     const value = parseInt(input.value);
+    const errorMessage = document.getElementById(errorId);
+
     if (isNaN(value) || value < 1 || value > 5) {
-        alert("Please select a number between 1 and 5 for each question.");
+        errorMessage.textContent = "Please select a number between 1 and 5 for this question.";
         return false;
     }
+    
+    errorMessage.textContent = ""; // Clear error message if valid
     return true;
 }
 
@@ -19,18 +23,22 @@ function validateInput(input) {
 function calculateScore() {
     let totalScore = 0;
     const userAnswers = [];
+    const questionScores = [];
+    let isValid = true;
 
     // Validate and collect user answers
     for (let i = 1; i <= 5; i++) {
         const input = document.getElementById(`q${i}`);
-        if (!validateInput(input)) {
-            return;
-        }
+        const isQuestionValid = validateInput(input, `error-q${i}`);
+        isValid = isValid && isQuestionValid; // Ensure all questions are valid
         userAnswers.push(parseInt(input.value));
     }
 
-    // Calculate compatibility score
-    let questionScores = [];
+    if (!isValid) {
+        return; // Stop if validation fails
+    }
+
+    // Calculate compatibility scores for each question
     for (let i = 0; i < 5; i++) {
         const diff = Math.abs(userAnswers[i] - desiredAnswers[i]);
         const questionScore = 5 - diff; // Higher score for closer answers
@@ -54,10 +62,17 @@ function displayResults(compatibilityScore, questionScores) {
 
     // Display closing remarks based on thresholds
     if (compatibilityScore >= TRUE_LOVE_THRESHOLD) {
-        remarksElement.textContent = "Congratulations! You're a perfect match! ";
+        remarksElement.textContent = "You're a perfect match! True love!";
     } else if (compatibilityScore >= FRIENDS_THRESHOLD) {
         remarksElement.textContent = "You might be better off as friends.";
     } else {
         remarksElement.textContent = "Run away! You're not compatible at all.";
     }
+
+    // Display individual question compatibility scores
+    const individualScoresDiv = document.getElementById("individualScores");
+    individualScoresDiv.innerHTML = "<h3>Question Compatibility Scores:</h3>";
+    questionScores.forEach((score, index) => {
+        individualScoresDiv.innerHTML += `<p>Question ${index + 1}: ${score}/5</p>`;
+    });
 }
