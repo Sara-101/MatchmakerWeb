@@ -64,11 +64,11 @@ function displayResults(compatibilityScore, questionScores) {
 
     // Display closing remarks based on thresholds
     if (compatibilityScore >= TRUE_LOVE_THRESHOLD) {
-        remarksElement.textContent = "You're a perfect match! True love!";
+        remarksElement.textContent = "CONGRATULATIONS! You're compatibile ";
     } else if (compatibilityScore >= FRIENDS_THRESHOLD) {
-        remarksElement.textContent = "You might be better off as friends.";
+        remarksElement.textContent = "JUST FRIENDS  You'd be better off as friends.";
     } else {
-        remarksElement.textContent = "Run away! You're not compatible at all.";
+        remarksElement.textContent = "RUN FOR YOUR LIFE! You're not compatible at all.";
     }
 
     // Display individual question compatibility scores
