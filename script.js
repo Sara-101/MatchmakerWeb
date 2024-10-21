@@ -9,7 +9,7 @@ const FRIENDS_THRESHOLD = 50;
 function validateInput(input) {
     const value = parseInt(input.value);
     if (isNaN(value) || value < 1 || value > 5) {
-        alert("Please enter a number between 1 and 5 for each question.");
+        alert("Please select a number between 1 and 5 for each question.");
         return false;
     }
     return true;
@@ -54,7 +54,7 @@ function displayResults(compatibilityScore, questionScores) {
 
     // Display closing remarks based on thresholds
     if (compatibilityScore >= TRUE_LOVE_THRESHOLD) {
-        remarksElement.textContent = "Congratulations! You're a perfect match!";
+        remarksElement.textContent = "Congratulations! You're a perfect match! ";
     } else if (compatibilityScore >= FRIENDS_THRESHOLD) {
         remarksElement.textContent = "You might be better off as friends.";
     } else {
