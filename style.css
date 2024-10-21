@@ -72,6 +72,12 @@ button:hover {
     top: -50px;
     left: 0;
 }
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
 
 .heart::after {
     left: 50px;
